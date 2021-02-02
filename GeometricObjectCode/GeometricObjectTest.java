@@ -16,13 +16,12 @@ public class GeometricObjectTest {
 		print("The biggest " + bigRectangle.toString() + "\n\n");
 		
 		Triangle t1 = new Triangle(10, 20, 25, "Green", true);
-		Triangle t2 = new Triangle(20, 10, 20, "Blue", false);
+		Triangle t2 = new Triangle(20, 10, 20, "white", true);
 		
-		Triangle bigTriangle = t1.compareTo(t2) > 0 ? t1 :t2;
+		Triangle bigTriangle = (Triangle) GeometricObject.max(t1, t2);
 		print("The biggest " + bigTriangle.toString() + "\n\n");
 		
-		GeometricObject biggestShape = bigCircle.compareTo(bigTriangle) > 0 ? bigCircle : bigTriangle;
-		biggestShape = biggestShape.compareTo(bigRectangle) > 0 ? biggestShape : bigRectangle;
+		GeometricObject biggestShape = GeometricObject.max(bigRectangle, GeometricObject.max(bigCircle, bigTriangle));
 		print("The biggest Shape: " + biggestShape.toString());
 	}
 

@@ -7,9 +7,9 @@ abstract class GeometricObject implements Comparable<GeometricObject>{
 	private boolean filled;
 	private GregorianCalendar dateCreated;
 	
-	public GeometricObject() {
-	
+	public GeometricObject() {	
 	}
+
 	GeometricObject(String color, boolean isfilled){
 		this.color = color;
 		this.filled = isfilled;
@@ -27,7 +27,7 @@ abstract class GeometricObject implements Comparable<GeometricObject>{
 	}
 	
 	public static GeometricObject max(GeometricObject obj1, GeometricObject obj2) {
-		return obj1.compareTo(obj2) > 0 ? obj2 : obj1;
+		return obj1.compareTo(obj2) > 0 ? obj1 : obj2;
 	}
 	
 	public String getColor() {

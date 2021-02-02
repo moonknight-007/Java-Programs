@@ -3,7 +3,6 @@ package GeometricObjectCode;
 public class Triangle extends GeometricObject {
     private double side1, side2, side3;
 
-    //Constructors
     Triangle() {
     	this(3.0);
     }
@@ -21,8 +20,6 @@ public class Triangle extends GeometricObject {
         setSide3(side3);
     }
 
-    
-    //Getter and setters
     public double getSide1() {
         return side1;
     }
@@ -58,7 +55,6 @@ public class Triangle extends GeometricObject {
         return false;
     }
 
-    //Abstract classes implemented
     @Override
     public double getArea() {
         double s = getPerimeter() / 2;
@@ -79,7 +75,6 @@ public class Triangle extends GeometricObject {
         return false;
     }
 
-    //Override toString
     @Override
     public String toString() {
         return "triangle:\n" + "Sides: " +
