@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class VehicleTest {
@@ -32,8 +31,7 @@ public class VehicleTest {
 	         System.out.println("3......................Find vehicle by name");
 	         System.out.println("4..............Show data about all vehicles");
 	         System.out.println("5.......Change direction of a given vehicle");
-	         System.out.println("6.........................Test clone method");
-	         System.out.println("7..............................Exit program");
+	         System.out.println("6..............................Exit program");
 	         System.out.println(".............................Your choice?");
 	         int choice = scan.nextInt();
 	         
@@ -97,29 +95,9 @@ public class VehicleTest {
 	        			 arr.get(index).turnRight(degrees);
 	        		 else
 	        			 System.out.println("invalid direction");
-	        	 }else {
-	        		 System.out.println("Vehicle not found");
 	        	 }
 	        	 break;
 	         case 6:
-	        	 Car car1 = new Car("Tesla", "Black", 95000, 2021, "ind-001", 164, 100);
-	        	 Car car2 = (Car) car1.clone();
-	        	 System.out.println("After cloning car:-");
-	        	 System.out.println(car1.toString());
-	        	 System.out.println(car2.toString());
-	        	 
-	        	 Calendar cal = Calendar.getInstance();
-	        	 cal.set(Calendar.YEAR, 2015);
-	        	 cal.set(Calendar.MONTH, 5);
-	        	 cal.set(Calendar.DATE, 21);
-	        	 car2.setBuyingDate(cal);
-	        	 car2.setName("car2");
-	        	 
-	        	 System.out.println("\nafter cloning car and changing date and name:-");
-	        	 System.out.println(car1.toString());
-	        	 System.out.println(car2.toString());
-	        	 break;
-	         case 7:
 	        	 scan.close();
 	        	 System.exit(0);
 	        	 break;

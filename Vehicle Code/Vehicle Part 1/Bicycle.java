@@ -1,4 +1,3 @@
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class Bicycle extends Vehicle{
@@ -36,8 +35,6 @@ public class Bicycle extends Vehicle{
 		
 		System.out.print("Gears: ");
 		this.gear =  input.nextInt();
-		
-		setBuyingDate(Calendar.getInstance());
 	}
 	
 	public void turnRight(int degrees) {
@@ -54,13 +51,7 @@ public class Bicycle extends Vehicle{
 	}
 	@Override
 	public String toString() {
+		// TODO Auto-generated method stub
 		return super.toString() + " Gears: " + gear;
-	}
-	
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		Bicycle bicycle = null;
-		bicycle = (Bicycle) super.clone();
-		return bicycle;
 	}
 }

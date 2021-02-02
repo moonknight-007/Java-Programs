@@ -38,6 +38,7 @@ public class Car extends Vehicle {
 		this.power =  input.nextInt();
 		
 		setBuyingDate(Calendar.getInstance());
+		
 	}
 	
 	public void turnRight(int degrees) {
@@ -71,5 +72,24 @@ public class Car extends Vehicle {
 		Car car = null;
 		car = (Car) super.clone();
 		return car;
+	}
+	
+	@Override
+	public void accelerate(int speedFactor){
+		double sp;
+		if(getSpeed() == 0) {
+			sp = 0.5 * speedFactor;
+		}else {
+			sp = getSpeed() * speedFactor;
+		}
+		sp = sp < Driveable.MAX_SPEED_CAR ? sp : Driveable.MAX_SPEED_CAR;
+		setSpeed(sp);
+		System.out.println("Speed of car after using acclerator: " + sp + " km/h");
+	}
+	
+	@Override
+	public void breaks(int speedFactor) {
+		setSpeed(getSpeed()/speedFactor);
+		System.out.println("speed of car after using breaks: " + getSpeed() + " km/h");
 	}
 }

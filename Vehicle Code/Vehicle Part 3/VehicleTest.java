@@ -32,8 +32,9 @@ public class VehicleTest {
 	         System.out.println("3......................Find vehicle by name");
 	         System.out.println("4..............Show data about all vehicles");
 	         System.out.println("5.......Change direction of a given vehicle");
-	         System.out.println("6.........................Test clone method");
-	         System.out.println("7..............................Exit program");
+	         System.out.println("6.........................Test clone method");	
+	         System.out.println("7..................Test driveable interface");
+		     System.out.println("8..............................Exit program");
 	         System.out.println(".............................Your choice?");
 	         int choice = scan.nextInt();
 	         
@@ -97,8 +98,6 @@ public class VehicleTest {
 	        			 arr.get(index).turnRight(degrees);
 	        		 else
 	        			 System.out.println("invalid direction");
-	        	 }else {
-	        		 System.out.println("Vehicle not found");
 	        	 }
 	        	 break;
 	         case 6:
@@ -120,6 +119,22 @@ public class VehicleTest {
 	        	 System.out.println(car2.toString());
 	        	 break;
 	         case 7:
+	        	 Car veh1 = new Car("Tesla", "Dark Blue", 97000, 2021, "nor-002", 125, 123);
+		    	 Bicycle veh2 = new Bicycle("Arrow", "Dark Red", 4500, 2020, "spider-01", 145, 0);
+		    	  
+				  System.out.println("Vehicle: Car");
+				  veh1.accelerate(10);
+		    	  veh1.accelerate(20);
+		    	  veh1.breaks(5);
+		    	  veh1.stop();
+				  
+				  System.out.println("\nVehicle: Bike");
+				  veh2.accelerate(10);
+		    	  veh2.accelerate(200);
+		    	  veh2.breaks(5);
+		    	  veh2.stop();
+				  break;
+	         case 8:
 	        	 scan.close();
 	        	 System.exit(0);
 	        	 break;

@@ -63,4 +63,23 @@ public class Bicycle extends Vehicle{
 		bicycle = (Bicycle) super.clone();
 		return bicycle;
 	}
+	
+	@Override
+	public void accelerate(int speedFactor){
+		double sp = 0;
+		if(getSpeed() == 0) {
+			sp = 0.3 * speedFactor;
+		}else {
+			sp = getSpeed() * 0.5 * speedFactor;
+		}
+		sp = sp < Driveable.MAX_SPEED_BIKE ? sp : Driveable.MAX_SPEED_BIKE;
+		setSpeed(sp);
+		System.out.println("Speed of bike is " + sp + " km/h after using acclerator");
+	}
+	
+	@Override
+	public void breaks(int speedFactor) {
+		setSpeed(getSpeed()/(0.5 * speedFactor));
+		System.out.println("Speed of bicycle is " + getSpeed() + " km/h after using breaks");
+	}
 }

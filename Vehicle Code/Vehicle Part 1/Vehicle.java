@@ -1,6 +1,5 @@
-import java.util.Calendar;
 
-public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
+public abstract class Vehicle {
 	private String color;
 	private String name;
 	private String serialNumber;
@@ -9,7 +8,6 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 	private int direction;
 	private double speed;
 	protected java.util.Scanner input;
-	private Calendar buyingDate;
 	
 	Vehicle(){
 		
@@ -28,7 +26,6 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 		this.direction = direction;
 		this.serialNumber = serialNum;
 		this.speed = 0.0;
-		this.buyingDate = Calendar.getInstance();
 	}
 	
 	public void setAllFields() {
@@ -46,7 +43,6 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 		
 		System.out.print("Serial #: ");
 		this.serialNumber = input.next();
-		this.buyingDate = Calendar.getInstance();
 	}
 	
 	public abstract void turnLeft(int degrees);
@@ -73,9 +69,6 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-	public void setBuyingDate(Calendar buyingDate) {
-		this.buyingDate = buyingDate;
-	}
 	
 	public String getName() {
 		return name;
@@ -98,10 +91,7 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 	public double getSpeed() {
 		return speed;
 	}
-	public Calendar getBuyingDate() {
-		return buyingDate;
-	}
-	
+
 	@Override
 	public String toString() {
 		String info = "Name: " + getName()
@@ -110,23 +100,7 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 					+ " Model: " + getModel()
 					+ " Serial #: " + getSerialNumber()
 					+ " Direction: " + this.direction
-					+ " Speed: " + getSpeed() 
-					+ " Buying Date: " + buyingDate.get(Calendar.DATE)
-					+ " " + buyingDate.get(Calendar.MONTH)
-					+ " " + buyingDate.get(Calendar.YEAR);
+					+ " Speed: " + getSpeed();
 		return info;
-	}
-	
-	@Override
-	public int compareTo(Vehicle o) {
-		return price > o.price ? 1 : -1;
-	}
-	
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		Vehicle veh = null;
-		veh = (Vehicle) super.clone();
-		veh.buyingDate = (Calendar) buyingDate.clone();
-		return veh;
 	}
 }

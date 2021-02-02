@@ -1,6 +1,6 @@
 import java.util.Calendar;
 
-public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
+public abstract class Vehicle implements Comparable<Vehicle>, Cloneable, Driveable{
 	private String color;
 	private String name;
 	private String serialNumber;
@@ -102,6 +102,14 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 		return buyingDate;
 	}
 	
+	private String getDate() {
+		if(buyingDate == null)
+			return "null";
+		return buyingDate.get(Calendar.DATE)
+				+ " " + buyingDate.get(Calendar.MONTH)
+				+ " " + buyingDate.get(Calendar.YEAR);
+	}
+	
 	@Override
 	public String toString() {
 		String info = "Name: " + getName()
@@ -111,9 +119,7 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 					+ " Serial #: " + getSerialNumber()
 					+ " Direction: " + this.direction
 					+ " Speed: " + getSpeed() 
-					+ " Buying Date: " + buyingDate.get(Calendar.DATE)
-					+ " " + buyingDate.get(Calendar.MONTH)
-					+ " " + buyingDate.get(Calendar.YEAR);
+					+ " Buying Date: " + getDate();
 		return info;
 	}
 	
@@ -128,5 +134,10 @@ public abstract class Vehicle implements Comparable<Vehicle>, Cloneable{
 		veh = (Vehicle) super.clone();
 		veh.buyingDate = (Calendar) buyingDate.clone();
 		return veh;
+	}
+	@Override
+	public void stop() {
+		this.speed = 0.0;
+		System.out.println("Vehicle is at rest.");
 	}
 }
